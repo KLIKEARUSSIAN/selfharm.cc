@@ -2,25 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>%</title>
+  <title>Video Demo</title>
   <style>
-    /* Make the video fill the whole screen */
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
       background: black;
-      height: 100%;
-      overflow: hidden;
+      color: white;
+      font-family: sans-serif;
     }
     video {
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
+      width: 50%;
+      max-width: 500px;
+      height: auto;
+      display: block;
+      margin: 50px auto;
     }
   </style>
 </head>
 <body>
-  <video autoplay muted loop playsinline>
+  <video loop controls playsinline>
     <source src="quitter.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
