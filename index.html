@@ -2,21 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>vile.sh Clone</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <title>%</title>
+  <style>
+    /* Make the video fill the whole screen */
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      height: 100%;
+      overflow: hidden;
+    }
+    video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: none;
+    }
+  </style>
 </head>
 <body>
-
-  <video autoplay muted loop id="quitter-video">
+  <video autoplay muted loop>
     <source src="quitter.mov" type="video/mov">
     Your browser does not support the video tag.
   </video>
-
-  <div class="center-content">
-    <h1>vile.sh</h1>
-    <a href="https://example.com/download.exe" class="button">Download</a>
-  </div>
-
 </body>
 </html>
