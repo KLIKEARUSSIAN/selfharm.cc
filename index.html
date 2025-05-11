@@ -2,25 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>.</title>
-  <link rel="icon" href="fevercandy.png" type="image/png">
+  <title></title>
+  <link rel="icon" href="feverdiamond.png" type="image/png">
+  
   <style>
     body {
       margin: 0;
       background: black;
       color: white;
       font-family: sans-serif;
+      overflow: hidden; /* Prevent scrolling */
     }
+
     video {
       width: 50%;
       max-width: 500px;
       height: auto;
       display: block;
       margin: 50px auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .grain-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); /* Example grain pattern */
+      opacity: 0.2; /* Subtle grain effect */
+      pointer-events: none; /* Prevent the overlay from blocking video interactions */
+      z-index: 2;
+      animation: noise-animation 0.1s infinite;
+    }
+
+    @keyframes noise-animation {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(1px, 1px); }
+      100% { transform: translate(0, 0); }
     }
   </style>
+
+  <script>
+    const message = "<3";
+    let i = 0;
+    let direction = 1;
+
+    function loopTitle() {
+      document.title = message.slice(0, i);
+
+      if (direction === 1) {
+        i++;
+        if (i > message.length) {
+          direction = -1;
+          setTimeout(loopTitle, 150); // Pause before deleting
+          return;
+        }
+      } else {
+        i--;
+        if (i === 0) {
+          direction = 1;
+          setTimeout(loopTitle, 500); // Pause before typing again
+          return;
+        }
+      }
+
+      setTimeout(loopTitle, 150); // Typing speed
+    }
+
+    window.onload = loopTitle;
+  </script>
 </head>
 <body>
+  <div class="grain-overlay"></div> <!-- Grain overlay div -->
   <video loop controls playsinline>
     <source src="quitter.mp4" type="video/mp4">
     Your browser does not support the video tag.
